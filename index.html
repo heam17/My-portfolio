@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEAMANDH | Game Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --dark-bg: #0a0a0a;
+            --neon-blue: #fc820f;
+            --neon-pink: #d1ff2a;
+            --text-light: #e0e0e0;
+            --font-mono: 'Roboto Mono', monospace;
+            --font-game: 'Press Start 2P', cursive;
+            --font-futuristic: 'Orbitron', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: var(--font-mono);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-family: var(--font-futuristic);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('assets/bg.jpg') center/cover;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-game);
+            font-size: 3rem;
+            margin: 0;
+            color: var(--neon-blue);
+        }
+
+        .hero-content h2 {
+            font-family: var(--font-futuristic);
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: var(--neon-pink);
+        }
+
+        .glitch {
+            animation: glitch-effect 3s infinite;
+        }
+
+        @keyframes glitch-effect {
+            0% { text-shadow: 2px 0 var(--neon-pink); }
+            25% { text-shadow: -2px 0 var(--neon-blue); }
+            50% { text-shadow: 2px 0 var(--neon-pink); }
+            75% { text-shadow: -2px 0 var(--neon-blue); }
+            100% { text-shadow: 2px 0 var(--neon-pink); }
+        }
+
+        .projects, .art-gallery, .about {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: var(--font-futuristic);
+            color: var(--neon-blue);
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+
+        .project-card {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            background: rgba(20, 20, 20, 0.7);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--neon-blue);
+        }
+
+        .video-container {
+            flex: 1;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 255, 252, 0.3);
+        }
+
+        .project-desc {
+            flex: 1;
+        }
+
+        .project-desc h3 {
+            font-family: var(--font-futuristic);
+            color: var(--neon-pink);
+            font-size: 1.5rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .art-item img {
+            width: 100%;
+            border-radius: 5px;
+            transition: transform 0.3s;
+            border: 2px solid var(--neon-blue);
+        }
+
+        .art-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            justify-content: space-between;
+        }
+
+        .skills, .contact {
+            flex: 1;
+            background: rgba(20, 20, 20, 0.7);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--neon-pink);
+        }
+
+        .skills h3, .contact h3 {
+            color: var(--neon-blue);
+            font-family: var(--font-futuristic);
+        }
+
+        .contact a {
+            color: var(--neon-pink);
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.8);
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-card {
+                flex-direction: column;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#art">ART</a></li>
+            <li><a href="#about">ABOUT</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1><span class="glitch">HEAMANDH B</span></h1>
+            <h2>GAME DEVELOPER | FULL STACK DEV ENTHUSIAST | AI ENTHUSIAST</h2>
+            <p>Crafting worlds with code & creativity.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>MY GAME PROJECTS</h2>
+        <div class="project-card">
+            <div class="video-container">
+                <video controls poster="assets/thumbnail.jpg">
+                    <source src="assets/game.mp4" type="video/mp4">
+                    Your browser doesn't support the video tag.
+                </video>
+            </div>
+            <div class="project-desc">
+                <h3>NINJA QUEST (2D PLATFORMER)</h3>
+                <p>Built with Godot Engine | GDScript | Pixel Art</p>
+                <ul>
+                    <li>Designed levels, floating platofrms , and coin systems.</li>
+                    <li>Implemented player physics and UI elements.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="art" class="art-gallery">
+        <h2>ART & DESIGN</h2>
+        <div class="gallery-grid">
+            <div class="art-item"><img src="assets/art1.jpeg" alt="Art 1"></div>
+            <div class="art-item"><img src="assets/art2.jpeg" alt="Art 2"></div>
+            <div class="art-item"><img src="assets/art3.jpeg" alt="Art 3"></div>
+            <div class="art-item"><img src="assets/art4.jpeg" alt="Art 4"></div>
+            <div class="art-item"><img src="assets/art5.jpeg" alt="Art 5"></div>
+            <div class="art-item"><img src="assets/art6.jpeg" alt="Art 6"></div>
+            <div class="art-item"><img src="assets/art7.jpeg" alt="Art 7"></div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>ABOUT ME</h2>
+        <div class="about-content">
+            <div class="skills">
+                <h3>TECHNICAL SKILLS</h3>
+                <ul>
+                    <li>Game Engines: Godot, Unity (Basic)</li>
+                    <li>Languages: GDScript, C#, JavaScript, Dart</li>
+                    <li>AI Tools: ChatGPT, DeepSeek, NLP</li>
+                    <li>Design: Figma, Pixel Art, UI/UX</li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h3>CONTACT</h3>
+                <p>📧 heam1745@gmail.com</p>
+                <p>🔗 <a href="https://linkedin.com/in/heamandh-b-598623331" target="_blank">LinkedIn</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 HEAMANDH B | Made with 🎮 and 💻</p>
+    </footer>
+</body>
+</html>
